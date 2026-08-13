@@ -1,0 +1,35 @@
+{
+  "name": "weapplyjobs-hidanitech-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/app.ts",
+    "start": "tsx src/app.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "demo:queue": "tsx scripts/demo-queue.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/redis": "^9.0.0",
+    "@prisma/adapter-better-sqlite3": "^7.9.1",
+    "@prisma/client": "^7.9.1",
+    "bullmq": "^6.1.1",
+    "dotenv": "^17.4.2",
+    "fastify": "^5.12.0",
+    "fastify-plugin": "^6.0.0",
+    "fastify-type-provider-zod": "^7.0.0",
+    "ioredis": "^6.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "prisma": "^7.9.1",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
+  }
+}
