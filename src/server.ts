@@ -3,6 +3,7 @@ import zodPlugin from "./plugins/zod.plugin.js";
 import dbPlugin from "./plugins/db.plugin.js";
 import errorHandlerPlugin from "./plugins/error-handler.plugin.js";
 import redisPlugin from "./plugins/redis.plugin.js";
+import queuePlugin from "./plugins/queue.plugin.js";
 import applicationsRoutes from "./routes/applications.route.js";
 import healthRoutes from "./routes/health.route.js";
 
@@ -19,6 +20,7 @@ export function buildServer(options: ServerOptions = {}) {
   server.register(errorHandlerPlugin);
   server.register(dbPlugin);
   server.register(redisPlugin);
+  server.register(queuePlugin);
   server.register(applicationsRoutes);
   server.register(healthRoutes);
 
