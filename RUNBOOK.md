@@ -59,7 +59,7 @@ docker run -d --name weapply-redis -p 6379:6379 redis:7
 npx prisma migrate deploy
 ```
 
-This applies committed migrations to the local SQLite database (creates `data/applications.db` if missing). The schema has a single `applications` table.
+This applies committed migrations to the local SQLite database (`data/applications.db`, which ships with the repo). The schema has a single `applications` table.
 
 > For local iteration you can instead use `npx prisma migrate dev`, which applies **and** creates new migrations.
 
@@ -190,7 +190,7 @@ elapsed  notifications(w/a/f)    stats-updates(w/a/f)    audit-logs(w/a/f)
 | `listen EADDRINUSE: address already in use 0.0.0.0:8000`       | Port already taken. Either stop the other process or change `PORT` in `.env`.                                       |
 | `/health` returns `503 degraded`                               | Redis or SQLite unreachable - check `REDIS_URL`, the `.env` path, and `data/applications.db` existence.             |
 | Jobs stuck in `waiting` forever                                | Worker threads died or Redis lost; restart the server. Check `npm run demo:queue` output.                           |
-| `SQLITE_CANTOPEN: unable to open database file`                | `DATABASE_URL` points to a missing/unwritable path. Confirm the `data/` directory exists (create it: `mkdir data`). |
+| `SQLITE_CANTOPEN: unable to open database file`                | `DATABASE_URL` points to a missing/unwritable path. Confirm `data/applications.db` exists (it is committed to the repo) and is writable. |
 | Prisma schema/client mismatch                                  | Run `npx prisma migrate deploy` then `npx prisma generate`.                                                         |
 
 ## 9. Useful commands
