@@ -8,12 +8,15 @@ generator client {
 }
 
 model Application {
-  id          Int      @id @default(autoincrement())
+  id          String    @id @default(uuid())
   jobId       String
   candidateId String
   recruiterId String
   coverLetter String
-  createdAt   DateTime @default(now())
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
 
+  @@index([jobId])
   @@map("applications")
 }
